@@ -1,21 +1,10 @@
-import './App.css';
+import Pages from './pages';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          PUCIT Help Desk
-        </p>
-        <p
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Coming Soon
-        </p>
-      </header>
+    <div>
+            <Pages />
+
     </div>
   );
 }
