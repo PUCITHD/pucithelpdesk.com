@@ -9,6 +9,7 @@ import Home from './Home.js';
 import About from './About';
 import BlogList from './blog/list';
 import BlogDetails from './blog/details';
+import Contact from './Contact.js';
 // import Terms from './legal/Terms.js';
 // import BusinessDetails from './business/BusinessDetails';
 // import BusinessList from './business/BusinessList';
@@ -26,6 +27,7 @@ const Pages = () => {
                 <Route path = "/blog/" element = {<BlogList/>} />
                 <Route path = "/blog/:slug" element = {<BlogDetails/>} />
                 <Route path = "/about" element = {<About/>} />
+                <Route path = "/contact" element={<Contact/>} />
                 {/* <Route path = "/search" element = {<Search/>} />
                 <Route path = "/terms" element = {<Terms/>} />
                 <Route path = "/privacy" element = {<Privacy/>} />
