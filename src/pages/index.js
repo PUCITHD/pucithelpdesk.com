@@ -10,14 +10,8 @@ import About from './About';
 import BlogList from './blog/list';
 import BlogDetails from './blog/details';
 import Contact from './Contact.js';
-// import Terms from './legal/Terms.js';
-// import BusinessDetails from './business/BusinessDetails';
-// import BusinessList from './business/BusinessList';
-// import PersonDetails from './person/PersonDetails';
-// import Privacy from './legal/Privacy.js';
-// import BusinessCategory from './business/BusinessCategory.js';
-// import Search from './Search.js';
-// import Pricing from './Pricing.js';
+import CourseList from './course/list.js';
+import CourseDetails from './course/details.js';
 
 const Pages = () => {
     return(
@@ -28,8 +22,9 @@ const Pages = () => {
                 <Route path = "/blog/:slug" element = {<BlogDetails/>} />
                 <Route path = "/about" element = {<About/>} />
                 <Route path = "/contact" element={<Contact/>} />
-                {/* <Route path = "/search" element = {<Search/>} />
-                <Route path = "/terms" element = {<Terms/>} />
+                <Route path = "/course/" element = {<CourseList/>} />
+                <Route path = "/course/:slug" element = {<CourseDetails/>} />
+                {/* <Route path = "/terms" element = {<Terms/>} />
                 <Route path = "/privacy" element = {<Privacy/>} />
                 <Route path='/pricing' element={<Pricing/>} /> */}
             </Routes>

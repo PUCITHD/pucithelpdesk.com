@@ -4,17 +4,17 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import parse from 'html-react-parser';
 
-const BlogList = () => {
+export default function CourseList() {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [blogs, setBlogs] = useState([]);
+    const [courses, setCourses] = useState([]);
     useEffect(() => {
-        fetch("https://public-api.wordpress.com/rest/v1.1/sites/pucithelpdesk.wordpress.com/posts/?order_by=date&order=DESC&fields=title,author,slug,excerpt,featured_image")
+        fetch("https://pucithd.github.io/data/courses/")
             .then(res => res.json())
             .then(
                 (data) => {
                     setIsLoaded(true);
-                    setBlogs(data.posts);
+                    setCourses(data.courses);
                 },
                 (error) => {
                     setIsLoaded(true);
@@ -27,7 +27,7 @@ const BlogList = () => {
     } else if (!isLoaded) {
         return (
             <div className=" bg-slate-100 border-gray-200 dark:bg-gray-900">
-                <Navbar selected="blog" />
+                <Navbar selected="course" />
                 <div className="columns-1 md:columns-3 min-h-[100vh]">
                     <div className="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
                         <div className="animate-pulse flex space-x-4">
@@ -81,18 +81,19 @@ const BlogList = () => {
     } else {
         return (
             <div className=' bg-slate-100 border-gray-200 dark:bg-gray-900 '>
-                <Navbar selected="blog"/>
-                <div className='container  mx-auto p-4 min-h-[100vh]'>
-                <h1 className='mb-2 text-4xl font-bold tracking-tight text-gray-900 dark:text-whi'>Blog List</h1>
+                <Navbar selected="course"/>
+                <div className='container mx-auto p-4 min-h-[100vh]'>
+                    <h1 className='mb-2 text-4xl font-bold tracking-tight text-gray-900 dark:text-whi'>Course List</h1>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
-                            {blogs.map(blog => (
-                            <div key={(blog.slug).toString()}>
-                                <Link to={`${blog.slug}`}>
+                            {courses.map(course => (
+                            <div key={(course.slug).toString()}>
+                                <Link to={`${course.slug}`}>
                                     <div className="my-4 flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row  hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                                         <div className="flex flex-col justify-between p-4 leading-normal">
-                                            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{parse(blog.title)}</h5>
-                                            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{parse(blog.excerpt)}</p>
-                                            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Written By: {parse(blog.author.name)}</p>
+                                            <h5 className="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">{parse(course.title)}</h5>
+                                            <p className="mb-3 text-xl text-gray-700 dark:text-gray-400">{parse(course.description)}</p>
+                                            <p className="mb-3 font-bold text-gray-800 dark:text-gray-200">By: {parse(course.lecturer)}</p>
+                                            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Lectures: {(course.lectures)}</p>
                                         </div>
                                     </div>
                                 </Link>
@@ -105,5 +106,3 @@ const BlogList = () => {
         );
     }
 }
-
-export default BlogList;

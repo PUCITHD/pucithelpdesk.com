@@ -1,4 +1,4 @@
-import React, { useState, useEffect }  from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -21,7 +21,7 @@ const Home = () => {
                               &nbsp;See Blogs
                           </Link>  
                       </div>
-                      <div className="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36">
+                      {/* <div className="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36">
                           <span className="font-semibold text-gray-400 uppercase">Sponsors</span>
                           <div className="flex flex-wrap justify-center items-center mt-8 text-gray-500 sm:justify-between">
                               <a href="https://thedevcorporate.com/" rel='noreferrer' target="_blank" className="mx-auto mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400">
@@ -34,7 +34,7 @@ const Home = () => {
                               </a>
                               
                           </div>
-                      </div> 
+                      </div>  */}
                   </div>
               </section>
             <Footer />
