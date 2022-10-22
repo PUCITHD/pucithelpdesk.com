@@ -80,35 +80,28 @@ function BlogDetails () {
             
             <div className=" bg-slate-100 border-gray-200 dark:bg-gray-900">
                 <Navbar selected="blog"/>
-                <div className="sm:container mx-auto p-4 max-w-md lg:grid lg:grid-cols-4 lg:gap-8 min-h-[100vh]" >
-                    <div className="lg:col-span-3">
-                        <h4 className="mb-3 text-5xl font-semibold tracking-tight text-black dark:text-white">{parse(blog.title)}</h4>
-                        <hr/>
-                        <div className="blogContent text-gray-700 dark:text-white">
-                            {parse(blog.content)}
-                        </div>
-                        <hr/>
-                        <p className="my-5 italic text-gray-900 dark:text-white">Published On: {blog.date}</p>
-                    </div>
-                    <div className="lg:col-span-1">
-                        <div className="my-4 bg-slate-300  dark:bg-slate-800 p-4 max-w-3xl rounded-xl w-full">
-                            <h4 className="mb-3 text-xl font-semibold tracking-tight dark:text-white">Written by:</h4>
-
-                            <div className="rounded-lg text-gray-700 dark:text-white columns-2">
-                                <img src={blog.author.avatar_URL} alt="Author" className="rounded-lg rounded-r-none" />
-                                <p className="text-sm font-bold py-3">{blog.author.name}</p>
-                            </div>
-                        </div>
-                        <div className="bg-slate-300  dark:bg-slate-800 p-4 max-w-3xl rounded-xl w-full">
-                            <h4 className="mb-3 text-xl font-semibold tracking-tight dark:text-white">DETAILS</h4>
-
-                            <div className="text-gray-700 dark:text-white">
-                                <p className="mb-3">Published: {Moment(blog.date).format('MMMM DD, yyyy')}</p>
-                                <p className="mb-3">Modified: {Moment(blog.modified).format('MMMM DD, yyyy')}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <main class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900">
+  <div class="flex justify-between px-4 mx-auto max-w-screen-xl ">
+      <article class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+          <header class="mb-4 lg:mb-6 not-format">
+              <address class="flex items-center mb-6 not-italic">
+                  <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
+                      <img class="mr-4 w-16 h-16 rounded-full" src={blog.author.avatar_URL} alt={blog.author.name}/>
+                      <div>
+                          <a rel="author" class="text-xl font-bold text-gray-900 dark:text-white">{blog.author.name}</a>
+                          <p class="text-base font-light text-gray-500 dark:text-gray-400">@{blog.author.login}</p>
+                          <p class="text-base font-light text-gray-500 dark:text-gray-400"><time pubdate datetime="2022-02-08" title="February 8th, 2022">{ Moment(blog.date).format('MMMM DD, yyyy') }</time></p>
+                      </div>
+                  </div>
+              </address>
+              <h1 class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">{blog.title}</h1>
+          </header>
+          <p class="lead blogContent text-gray-900 dark:text-gray-200">
+            {parse(blog.content)}
+          </p>
+      </article>
+  </div>
+</main>
                 <Footer />
             </div>
         );
