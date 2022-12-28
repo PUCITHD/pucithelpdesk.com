@@ -24,9 +24,6 @@ const Pages = () => {
                 <Route path = "/contact" element={<Contact/>} />
                 <Route path = "/course/" element = {<CourseList/>} />
                 <Route path = "/course/:slug" element = {<CourseDetails/>} />
-                {/* <Route path = "/terms" element = {<Terms/>} />
-                <Route path = "/privacy" element = {<Privacy/>} />
-                <Route path='/pricing' element={<Pricing/>} /> */}
             </Routes>
         </Router>
     );

@@ -90,7 +90,7 @@ function BlogDetails () {
                       <div>
                           <a rel="author" class="text-xl font-bold text-gray-900 dark:text-white">{blog.author.name}</a>
                           <p class="text-base font-light text-gray-500 dark:text-gray-400">@{blog.author.login}</p>
-                          <p class="text-base font-light text-gray-500 dark:text-gray-400"><time pubdate datetime="2022-02-08" title="February 8th, 2022">{ Moment(blog.date).format('MMMM DD, yyyy') }</time></p>
+                          <p class="text-base font-light text-gray-500 dark:text-gray-400"><time pubdate datetime={Moment(blog.date).format('DD-MMMM-yyyy')} title={Moment(blog.date).format('MMMM DD, yyyy')}>{ Moment(blog.date).format('MMMM DD, yyyy') }</time></p>
                       </div>
                   </div>
               </address>
